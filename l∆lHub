@@ -152,9 +152,9 @@ elseif v:IsA("Model") and v.Name == "Wardrobe" then
 selection(v,"Closet",true)
 elseif v:IsA("Model") and v.Name == "RetroWardrobe" then
 selection(v,"Closet",true)
-                    end
+                     end
                 end
-			end)
+	end)
 		else
 			OtherESP:Disconnect()
 			for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
@@ -163,7 +163,7 @@ selection(v,"Closet",true)
 				end
 			end
 		end
-	end,
+	end
 })
 WTF1:AddToggle("EntitiesESP",{
 	Text = "Entities ESP",
@@ -172,8 +172,7 @@ WTF1:AddToggle("EntitiesESP",{
 	Callback = function(Value)
 		if Value then
 -- // ESP DOOR 🟥 \\
-workspace.ChildAdded:Connect(function(child)
-for _, v in pairs(child:GetDescendants()) do
+for _, child in pairs(workspace.CurrentRooms:GetDescendants()) do
 	        -- // EYES ESP \\
              if child.Name == "Eyes" then
 	       selection(child, "Eyes")
@@ -212,8 +211,8 @@ for _, v in pairs(child:GetDescendants()) do
 		selection(child:WaitForChild("Main"), "Blitz")
                 end
                 
-				end
-			end)
+	end
+
 			EntitiesESP = workspace.ChildAdded:Connect(function(child)
 for _, v in pairs(child:GetDescendants()) do
 	        -- // EYES ESP \\
@@ -254,8 +253,8 @@ for _, v in pairs(child:GetDescendants()) do
 		selection(child:WaitForChild("Main"), "Blitz")
                 end
                 
-				end
-			end)
+	end
+end)
 		else
 			EntitiesESP:Disconnect()
 			for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
