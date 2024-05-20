@@ -205,7 +205,7 @@ local Toggle = WTF1:AddToggle("Desp",{
 		selection(v:WaitForChild("Main"), "Blitz")
 	end
 end
-            OtherESP = workspace.CurrentRooms.ChildAdded:Connect(function(child)
+            EntitiesESP = workspace.CurrentRooms.ChildAdded:Connect(function(child)
                 task.wait(1)
                 for _, v in pairs(child:GetDescendants()) do
                 if v.Name == "Eyes" then
@@ -239,7 +239,7 @@ end
 end
             end)
         else
-            OtherESP:Disconnect()
+            EntitiesESP:Disconnect()
             for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
                 if v.Name == "KiwiHighlight_2" then
                     v:Destroy()
