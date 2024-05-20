@@ -175,7 +175,8 @@ local Toggle = WTF1:AddToggle("Desp",{
     Tooltip = "Entities ESP",
     Callback = function(Value)
         if Value then
-            for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
+            workspace.ChildAdded:Connect(function(v)
+              for _, v in pairs(v:GetDescendants()) do
                 if v.Name == "Eyes" then
                     selection(v, "Eyes", true)
                 elseif v.Name == "JeffTheKiller" then
@@ -204,7 +205,8 @@ local Toggle = WTF1:AddToggle("Desp",{
 	      elseif v.Name == "BackdoorRush" then
 		selection(v:WaitForChild("Main"), "Blitz")
 	end
-end
+    end
+end)
             EntitiesESP = workspace.CurrentRooms.ChildAdded:Connect(function(child)
                 task.wait(1)
                 for _, v in pairs(child:GetDescendants()) do
@@ -241,7 +243,7 @@ end
         else
             EntitiesESP:Disconnect()
             for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
-                if v.Name == "KiwiHighlight_2" then
+                if v.Name == "KiwiHighlight" then
                     v:Destroy()
                 end
             end
