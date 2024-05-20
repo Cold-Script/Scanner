@@ -94,18 +94,18 @@ local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
 local Ui = Library:CreateWindow({
-    Title = "l∆l Hub - (v1) [BETA]",
+    Title = "Tiqz Hub",
     Center = true,
     AutoShow = true,
     TabPadding = 5.5,
     MenuFadeTime = 0
 })
-local WTF1 = Ui:AddTab("Main")
-local OMG1 = WTF1:AddLeftGroupbox("ESP")
-local Toggle = OMG1:AddToggle("Desp",{
+local OMG1 = Ui:AddTab("Main")
+local WTF1 = OMG1:AddLeftGroupbox("ESP")
+local Toggle = WTF1:AddToggle("Desp",{
     Text = "Other ESP",
     Default = false,
-    Tooltip = "ESP misc like Lever,Door,Closet,...",
+    Tooltip = "Other ESP",
     Callback = function(Value)
         if Value then
             for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
@@ -113,7 +113,7 @@ local Toggle = OMG1:AddToggle("Desp",{
                     selection(v, "Door", true)
                 elseif v:IsA("Model") and v.Name == "LeverForGate" then
                     selection(v, "Lever Gate",true)
-                esleif v.Name == "TimerLever" then
+                elseif v.Name == "TimerLever" then
                     selction(v, "Timer Lever",true)
                 elseif v.Name == "KeyObtain" then
                     selection(v, "Key Room",true)
@@ -123,16 +123,23 @@ local Toggle = OMG1:AddToggle("Desp",{
                      selection(v, "Closet",true)
                 elseif v.Name == "RetroWardrobe" then
                      selection(v, "Closet",true)
+                    spawn(function()
+                        while task.wait() do
+                            if checkDistance(v:FindFirstChild("Hidden")) and AutoInteract then
+                                fireproximityprompt(v.ActivateEventPrompt)
+                            end
+                        end
+                    end)
                 end
             end
             OtherESP = workspace.CurrentRooms.ChildAdded:Connect(function(child)
                 task.wait(1)
                 for _, v in pairs(child:GetDescendants()) do
-                    if v:IsA("BasePart") and v.Name == "Door" and v.Parent.Name == "Door" then
+                if v:IsA("BasePart") and v.Name == "Door" and v.Parent.Name == "Door" then
                         selection(v, "Door", true)
-                    elseif v:IsA("Model") and v.Name == "LeverForGate" then
+                elseif v:IsA("Model") and v.Name == "LeverForGate" then
                     selection(v, "Lever Gate",true)
-                esleif v.Name == "TimerLever" then
+                elseif v.Name == "TimerLever" then
                     selction(v, "Timer Lever",true)
                 elseif v.Name == "KeyObtain" then
                     selection(v, "Key Room",true)
@@ -142,6 +149,13 @@ local Toggle = OMG1:AddToggle("Desp",{
                      selection(v, "Closet",true)
                 elseif v.Name == "RetroWardrobe" then
                      selection(v, "Closet",true)
+                        spawn(function()
+                            while task.wait() do
+                                if checkDistance(v:FindFirstChild("Hidden")) and AutoInteract then
+                                    fireproximityprompt(v.ActivateEventPrompt)
+                                end
+                            end
+                        end)
                     end
                 end
             end)
@@ -155,3 +169,90 @@ local Toggle = OMG1:AddToggle("Desp",{
         end
     end,
 })
+local Toggle = WTF1:AddToggle("Desp",{
+    Text = "Entities ESP",
+    Default = false,
+    Tooltip = "Entities ESP",
+    Callback = function(Value)
+        if Value then
+            for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
+                if v.Name == "Eyes" then
+                    selection(v, "Eyes", true)
+                elseif v.Name == "JeffTheKiller" then
+                    selection(v, "JeffTheKiller",true)
+                elseif v.Name == "SeekMoving" then
+                    selction(v, "Seek",true)
+                elseif v.Name == "ScaryWall" then
+                    selection(v, "",true)
+                elseif v.Name == "Lava" then
+                     selection(v, "",true)
+                elseif v.Name == "FigureSetup" then
+                     selection(v, "Figure",true)
+                elseif v.Name == "RushMoving" and checkDistance(v:FindFirstChildWhichIsA("BasePart"), 1000) then
+	                 selection(v:FindFirstChildWhichIsA("BasePart"), "Rush")
+                elseif v.Name == "AmbushMoving" and checkDistance(v:FindFirstChildWhichIsA("BasePart"), 1000) then
+                     selection(v:FindFirstChildWhichIsA("BasePart"), "Ambush")
+                elseif v.Name == "Drakobloxxer" then
+                     selection(v,"Drakobloxxer")
+	            elseif v.Name == "BackdoorLookman" then
+	                 if v then
+	                     task.wait()
+                v.Parent = game:GetService("Debris")
+		                            return
+	                        	end
+		selection(v:WaitForChild("Core"), "Backdoor Lookman")
+	      elseif v.Name == "BackdoorRush" then
+		selection(v:WaitForChild("Main"), "Blitz")
+	end
+end
+            OtherESP = workspace.CurrentRooms.ChildAdded:Connect(function(child)
+                task.wait(1)
+                for _, v in pairs(child:GetDescendants()) do
+                if v.Name == "Eyes" then
+                    selection(v, "Eyes", true)
+                elseif v.Name == "JeffTheKiller" then
+                    selection(v, "JeffTheKiller",true)
+                elseif v.Name == "SeekMoving" then
+                    selction(v, "Seek",true)
+                elseif v.Name == "ScaryWall" then
+                    selection(v, "",true)
+                elseif v.Name == "Lava" then
+                     selection(v, "",true)
+                elseif v.Name == "FigureSetup" then
+                     selection(v, "Figure",true)
+                elseif v.Name == "RushMoving" and checkDistance(v:FindFirstChildWhichIsA("BasePart"), 1000) then
+	                 selection(v:FindFirstChildWhichIsA("BasePart"), "Rush")
+                elseif v.Name == "AmbushMoving" and checkDistance(v:FindFirstChildWhichIsA("BasePart"), 1000) then
+                     selection(v:FindFirstChildWhichIsA("BasePart"), "Ambush")
+                elseif v.Name == "Drakobloxxer" then
+                     selection(v,"Drakobloxxer")
+	            elseif v.Name == "BackdoorLookman" then
+	                 if v then
+	                     task.wait()
+                v.Parent = game:GetService("Debris")
+		                            return
+	                        	end
+		selection(v:WaitForChild("Core"), "Backdoor Lookman")
+	      elseif v.Name == "BackdoorRush" then
+		selection(v:WaitForChild("Main"), "Blitz")
+	end
+end
+            end)
+        else
+            OtherESP:Disconnect()
+            for _, v in pairs(workspace.CurrentRooms:GetDescendants()) do
+                if v.Name == "KiwiHighlight_2" then
+                    v:Destroy()
+                end
+            end
+        end
+    end,
+})
+
+
+
+
+
+
+
+
