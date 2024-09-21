@@ -5,10 +5,10 @@ if _G.OnShop then
     local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"))()
 	
     CustomShop.CreateItem("", {
-        Title = "Scanner",
-        Desc = _G.Description or "",
+        Title = "Improve Scanner",
+        Desc = "OMG, What is that!?",
         Image = "https://static.wikia.nocookie.net/doors-game/images/4/4e/Scanner_Icon.png/revision/latest/scale-to-width-down/350?cb=20230203191128",
-        Price = _G.Price or 1000,
+        Price = 2500,
         Stack = 1,
     })
 end
@@ -56,7 +56,7 @@ local function u6(p1)
 				end);
 			end;
 		end
-		if v10:IsA("Model") and (v10.Name == "KeyObtain" or v10.Name == "LeverForGate" or v10.Name == "LiveBreakerPolePickup" or v10.Name == "LiveHintBook" or v10.Name == "Door" or v10.Name == "TimerLever" or v10.Name == "ElectroKey" or v10.Name == "ChestBox" or v10.Name == "ChestBoxLocked" or v10.Name == "FigureRagdoll") then
+		if v10:IsA("Model") and (v10.Name == "WaterPump" or v10.Name == "MinesAnchor" or v10.Name == "MinesGateButton" or v10.Name == "MinesGenerator" or v10.Name == "FuseObtain" or v10.Name == "KeyObtain" or v10.Name == "LeverForGate" or v10.Name == "LiveBreakerPolePickup" or v10.Name == "LiveHintBook" or v10.Name == "Door" or v10.Name == "TimerLever" or v10.Name == "ElectricalKeyObtain" or v10.Name == "ChestBox" or v10.Name == "ChestBoxLocked") then
 			local v12 = Storage.Star:Clone();
 			v12.CFrame = v10.PrimaryPart.CFrame;
 			v12.Parent = l__ScreenUI__1.ViewSpecial;
